@@ -47,8 +47,12 @@ RUN conda install pandas matplotlib scikit-learn
 RUN pip install keras
 RUN conda install jupyter notebook 
 # Jupyter listens port: 8888
-EXPOSE 8888
+# flask listen port: 5000
+EXPOSE 5000
+COPY app.py .
 
+
+CMD ["python", "app.py"]
 #  dock
 #   비밀번호 초기화할 값 가져오기
 #   docker run -it -p 8888:8888 pyapp:lastet
@@ -60,4 +64,4 @@ EXPOSE 8888
 
 #   Run Jupytewr notebook as Docker main process
 #   docker run -p 8888:8888 pyapp:latest
-CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/home/ubuntu/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
+#CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/home/ubuntu/notebooks", "--ip='*'", "--port=8888", "--no-browser"]
