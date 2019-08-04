@@ -4,7 +4,7 @@ from machine_running import entry_point
 app = Flask("app")
 
 @app.route('/')
-def index():
+def index() :
     return entry_point()
 
 if __name__ =='__main__':
