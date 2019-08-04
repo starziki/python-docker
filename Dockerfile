@@ -6,7 +6,7 @@ RUN sed -i 's/archive.ubuntu.com/ftp.daum.net/g' /etc/apt/sources.list
 # Updating Ubuntu packages
 RUN apt-get update 
 RUN apt-get upgrade
-RUN apt-get install -y emacs
+RUN apt-get install -y emacs apt-utils
 
 # Adding wget and bzip2
 RUN apt-get install -y wget bzip2
@@ -50,12 +50,12 @@ RUN conda install jupyter notebook
 # flask listen port: 5000
 EXPOSE 5000
 COPY app.py .
-
+WORKDIR /home/ubuntu/python
 
 CMD ["python", "app.py"]
 #  dock
 #   비밀번호 초기화할 값 가져오기
-#   docker run -it -p 8888:8888 pyapp:lastet
+#   docker run -it -p 8888:8888 pyapp:latet
 #   CMD ipython 
 #   from notebook.auth import passwd
 #   passwd()
@@ -63,5 +63,5 @@ CMD ["python", "app.py"]
 
 
 #   Run Jupytewr notebook as Docker main process
-#   docker run -p 8888:8888 pyapp:latest
+#   docker run -p 5000:5000 pyapp:latest
 #CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/home/ubuntu/notebooks", "--ip='*'", "--port=8888", "--no-browser"]

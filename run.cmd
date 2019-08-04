@@ -1,0 +1,1 @@
+docker run -v /c/Users/port3/docker/python-docker:/home/ubuntu/python -p 5000:5000 pyapp:latest 
